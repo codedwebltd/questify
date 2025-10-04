@@ -38,7 +38,7 @@
         let sessionData = null;
 
         window.addEventListener('DOMContentLoaded', function() {
-            checkSession();
+            //checkSession();
             renderQuestion();
             generateQuestionNav();
             startTimer();
