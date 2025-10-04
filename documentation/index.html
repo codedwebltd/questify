@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questify Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Active nav link */
+        .nav-link.active {
+            color: #ea580c;
+            background-color: #fed7aa;
+        }
+
+        /* Search highlight */
+        .search-highlight {
+            background-color: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">Questify</h1>
+                        <p class="text-xs text-gray-500">Documentation v1.0</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Actions -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="../index.html"
+                        class="px-4 py-2 text-sm font-medium text-orange-600 hover:text-orange-700 transition">
+                        Launch App
+                    </a>
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-600 hover:text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-6 flex gap-8">
+
+        <!-- Sidebar Navigation (Desktop) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0">
+            <div class="sticky top-24">
+
+                <!-- Search Box -->
+                <div class="mb-6">
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Search documentation..."
+                            class="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-sm">
+                        <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <div id="searchResults"
+                        class="hidden mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-64 overflow-y-auto">
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="space-y-1">
+                    <a href="#overview"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Overview
+                    </a>
+                    <a href="#features"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Features
+                    </a>
+                    <a href="#installation"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Installation
+                    </a>
+                    <a href="#file-structure"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        File Structure
+                    </a>
+                    <a href="#pages"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Pages Overview
+                    </a>
+                    <a href="#customization"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Customization
+                    </a>
+                    <a href="#session-management"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Session Management
+                    </a>
+                    <a href="#browser-storage"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Browser Storage
+                    </a>
+                    <a href="#certificate"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Certificate System
+                    </a>
+                    <a href="#faq"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        FAQ
+                    </a>
+                    <a href="#credits"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Credits & License
+                    </a>
+                    <a href="#support"
+                        class="nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition">
+                        Support
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 min-w-0">
+
+            <!-- Hero Section -->
+            <section class="mb-12">
+                <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 md:p-12 text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Questify Documentation</h2>
+                    <p class="text-lg md:text-xl opacity-90 mb-6">Complete guide to setting up and customizing your
+                        Computer Based Testing system</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-white bg-opacity-20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">HTML5</span>
+                        <span
+                            class="bg-white bg-opacity-20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">Tailwind
+                            CSS</span>
+                        <span
+                            class="bg-white bg-opacity-20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">JavaScript
+                            ES6</span>
+                        <span
+                            class="bg-white bg-opacity-20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">Responsive</span>
+                        <span
+                            class="bg-white bg-opacity-20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">CDN-Based</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="bg-white rounded-xl border border-gray-200 p-4 text-center">
+                    <div class="text-3xl font-bold text-orange-600">6</div>
+                    <div class="text-sm text-gray-600">Pages</div>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-4 text-center">
+                    <div class="text-3xl font-bold text-orange-600">100%</div>
+                    <div class="text-sm text-gray-600">Responsive</div>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-4 text-center">
+                    <div class="text-3xl font-bold text-orange-600">1</div>
+                    <div class="text-sm text-gray-600">CDN Dependency</div>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-200 p-4 text-center">
+                    <div class="text-3xl font-bold text-orange-600">6</div>
+                    <div class="text-sm text-gray-600">JS Files</div>
+                </div>
+            </div>
+
+            <!-- Overview Section -->
+            <section id="overview" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Overview</h3>
+                    <p class="text-gray-700 mb-4">
+                        Questify is a modern, lightweight Computer Based Testing (CBT) system built entirely with HTML5,
+                        CSS3 (Tailwind), and vanilla JavaScript.
+                        It provides a complete examination workflow from student login to certificate generation, with
+                        no backend dependencies required.
+                    </p>
+
+                    <div class="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-4">
+                        <h4 class="font-bold text-orange-900 mb-2">What's Included</h4>
+                        <ul class="space-y-2 text-sm text-orange-800">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>6 fully responsive pages with modern UI design</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Session management with 30-minute auto-expiry</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Live camera photo capture with fallback file upload</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Professional certificate generation with print functionality</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Exam timer with auto-submit on timeout</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Question navigator showing answered/unanswered status</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h4 class="font-bold text-gray-900 mb-3">Technical Specifications</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-gray-900 mb-2 text-sm">Frontend</h5>
+                            <ul class="space-y-1 text-sm text-gray-600">
+                                <li>• HTML5 semantic markup</li>
+                                <li>• Tailwind CSS v3.x via CDN</li>
+                                <li>• Vanilla JavaScript (ES6+)</li>
+                                <li>• No jQuery or frameworks</li>
+                            </ul>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-gray-900 mb-2 text-sm">Storage & Dependencies</h5>
+                            <ul class="space-y-1 text-sm text-gray-600">
+                                <li>• SessionStorage for session data</li>
+                                <li>• Base64 encoded photo storage</li>
+                                <li>• Requires internet (Tailwind CDN)</li>
+                                <li>• No backend required</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Key Features</h3>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Feature 1 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Secure Authentication</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Login system with exam number and access code validation. Credentials stored in
+                                JavaScript array for easy customization.
+                            </p>
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">validCredentials array</code>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Session Management</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Automatic 30-minute session expiry with countdown timer. Session persists across page
+                                navigation.
+                            </p>
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">sessionStorage API</code>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Photo Verification</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Live camera capture using MediaDevices API with automatic fallback to file upload if
+                                camera unavailable.
+                            </p>
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">getUserMedia()</code>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Dynamic Exam Interface</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Question navigator, progress tracking, answer state management, and countdown timer with
+                                auto-submit.
+                            </p>
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">questions array</code>
+                        </div>
+
+                        <!-- Feature 5 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Professional Certificates</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Auto-generated certificates with grade calculation, print-optimized layout, and
+                                professional design.
+                            </p>
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">@media print</code>
+                        </div>
+
+                        <!-- Feature 6 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Mobile Responsive</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Fully responsive design works seamlessly on desktop, tablet, and mobile devices with
+                                touch-friendly interface.
+                            </p>
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">Mobile-first</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Installation Section -->
+            <section id="installation" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Installation Guide</h3>
+
+                    <div class="space-y-6">
+                        <!-- Step 1 -->
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-bold text-gray-900 mb-2">Step 1: Extract Files</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Extract the downloaded ZIP file to your desired location. No installation required -
+                                this is a static HTML/JS project.
+                            </p>
+                            <div class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm font-mono">
+                                <div class="text-green-400"># Extract to your web directory</div>
+                                <div>unzip questify.zip -d /your/web/directory/</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-bold text-gray-900 mb-2">Step 2: Open in Browser</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Open <code class="bg-gray-100 px-2 py-1 rounded text-xs">index.html</code> in your web
+                                browser. You can:
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-600 ml-4">
+                                <li>• Double-click index.html to open directly</li>
+                                <li>• Use a local server (recommended for development)</li>
+                                <li>• Upload to any web hosting service</li>
+                            </ul>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-bold text-gray-900 mb-2">Step 3: Test the System</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Use the demo credentials to test:
+                            </p>
+                            <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                                <p class="text-sm font-semibold text-orange-900 mb-2">Demo Login:</p>
+                                <div class="space-y-1 text-sm text-orange-800">
+                                    <p><strong>Exam Number:</strong> EXM2025001</p>
+                                    <p><strong>Access Code:</strong> DEMO2025</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 - NEW -->
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-bold text-gray-900 mb-2">Step 4: Understanding the CDN Dependency</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                This template uses Tailwind CSS via CDN for styling. This means:
+                            </p>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-3">
+                                <p class="text-sm font-semibold text-blue-900 mb-2">✓ Advantages:</p>
+                                <ul class="space-y-1 text-sm text-blue-800 ml-4">
+                                    <li>• Zero build process required</li>
+                                    <li>• Works immediately out of the box</li>
+                                    <li>• No Node.js or npm installation needed</li>
+                                    <li>• Perfect for quick deployment and testing</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                <p class="text-sm font-semibold text-yellow-900 mb-2">⚠ Requirements:</p>
+                                <ul class="space-y-1 text-sm text-yellow-800 ml-4">
+                                    <li>• Internet connection required on first page load</li>
+                                    <li>• CDN loads from: <code
+                                            class="bg-white px-2 py-0.5 rounded text-xs">https://cdn.tailwindcss.com</code>
+                                    </li>
+                                    <li>• After initial load, browser caching makes subsequent loads fast</li>
+                                </ul>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-3">
+                                <strong>Note:</strong> For production environments with strict offline requirements, you
+                                can compile Tailwind CSS locally and replace the CDN script with a stylesheet link. See
+                                the Customization section for details.
+                            </p>
+                        </div>
+
+                        <!-- Requirements -->
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                            <h4 class="font-bold text-blue-900 mb-3">System Requirements</h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm text-blue-800">
+                                <div>
+                                    <p class="font-semibold mb-2">Browser Support:</p>
+                                    <ul class="space-y-1">
+                                        <li>• Chrome 90+ ✓</li>
+                                        <li>• Firefox 88+ ✓</li>
+                                        <li>• Safari 14+ ✓</li>
+                                        <li>• Edge 90+ ✓</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-semibold mb-2">Required Features:</p>
+                                    <ul class="space-y-1">
+                                        <li>• JavaScript enabled</li>
+                                        <li>• SessionStorage support</li>
+                                        <li>• Camera access (optional)</li>
+                                        <li>• Internet for CDN (Tailwind)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-blue-300">
+                                <p class="text-xs text-blue-800">
+                                    <strong>Camera Access:</strong> Photo capture requires HTTPS or localhost. Camera
+                                    may not work on HTTP sites due to browser security restrictions.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Local Server -->
+                        <div class="border border-gray-200 rounded-xl p-4">
+                            <h4 class="font-bold text-gray-900 mb-3">Optional: Run with Local Server</h4>
+                            <p class="text-sm text-gray-600 mb-3">For best development experience:</p>
+
+                            <div class="space-y-3">
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-700 mb-1">Using Python:</p>
+                                    <div class="bg-gray-900 text-gray-100 p-3 rounded-lg text-xs font-mono">
+                                        <div class="text-green-400"># Python 3</div>
+                                        <div>python -m http.server 8000</div>
+                                        <div class="text-gray-400 mt-1"># Then open: http://localhost:8000</div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-700 mb-1">Using Node.js:</p>
+                                    <div class="bg-gray-900 text-gray-100 p-3 rounded-lg text-xs font-mono">
+                                        <div class="text-green-400"># Install http-server globally</div>
+                                        <div>npm install -g http-server</div>
+                                        <div class="mt-1">http-server -p 8000</div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-700 mb-1">Using VS Code:</p>
+                                    <div class="bg-gray-100 p-3 rounded-lg text-xs text-gray-700">
+                                        Install "Live Server" extension → Right-click index.html → "Open with Live
+                                        Server"
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- File Structure Section -->
+            <section id="file-structure" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">File Structure</h3>
+
+                    <p class="text-sm text-gray-600 mb-6">
+                        The project follows a clean, organized structure. All files are properly separated for easy
+                        maintenance and customization.
+                    </p>
+
+                    <div class="bg-gray-900 text-gray-100 p-6 rounded-xl font-mono text-sm overflow-x-auto">
+                        <div class="text-green-400">Questify/</div>
+                        <div class="ml-4">
+                            <div class="text-blue-400">├── index.html</div>
+                            <div class="ml-8 text-gray-400"># Login page</div>
+
+                            <div class="text-blue-400 mt-2">├── verify-credentials.html</div>
+                            <div class="ml-8 text-gray-400"># Credential verification with countdown</div>
+
+                            <div class="text-blue-400 mt-2">├── upload-photo.html</div>
+                            <div class="ml-8 text-gray-400"># Camera capture & photo verification</div>
+
+                            <div class="text-blue-400 mt-2">├── student-dashboard.html</div>
+                            <div class="ml-8 text-gray-400"># Exam instructions & readiness check</div>
+
+                            <div class="text-blue-400 mt-2">├── exam.html</div>
+                            <div class="ml-8 text-gray-400"># Main examination interface</div>
+
+                            <div class="text-blue-400 mt-2">├── exam-complete.html</div>
+                            <div class="ml-8 text-gray-400"># Results & certificate page</div>
+
+                            <div class="text-yellow-400 mt-3">├── css/</div>
+                            <div class="ml-8 text-blue-400">└── animations.css</div>
+                            <div class="ml-12 text-gray-400"># Custom animations & print styles</div>
+
+                            <div class="text-yellow-400 mt-3">├── js/</div>
+                            <div class="ml-8 text-blue-400">├── index.js</div>
+                            <div class="ml-12 text-gray-400"># Login page logic</div>
+                            <div class="ml-8 text-blue-400">├── verify-credentials.js</div>
+                            <div class="ml-12 text-gray-400"># Verification & countdown logic</div>
+                            <div class="ml-8 text-blue-400">├── upload-photo.js</div>
+                            <div class="ml-12 text-gray-400"># Camera & photo upload logic</div>
+                            <div class="ml-8 text-blue-400">├── student-dashboard.js</div>
+                            <div class="ml-12 text-gray-400"># Dashboard logic</div>
+                            <div class="ml-8 text-blue-400">├── exam.js</div>
+                            <div class="ml-12 text-gray-400"># Exam interface & timer</div>
+                            <div class="ml-8 text-blue-400">└── exam-complete.js</div>
+                            <div class="ml-12 text-gray-400"># Results & certificate logic</div>
+
+                            <div class="text-yellow-400 mt-3">├── assets/</div>
+                            <div class="ml-8 text-yellow-400">└── images/</div>
+                            <div class="ml-12 text-gray-400"># Your images/logos go here</div>
+
+                            <div class="text-yellow-400 mt-3">└── documentation/</div>
+                            <div class="ml-8 text-blue-400">└── index.html</div>
+                            <div class="ml-12 text-gray-400"># This documentation file</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 grid md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2 text-sm">HTML Files (6 pages)</h4>
+                            <p class="text-xs text-gray-600">Each page handles a specific part of the exam workflow. All
+                                pages are responsive and mobile-first.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2 text-sm">JavaScript Files (6 files)</h4>
+                            <p class="text-xs text-gray-600">Separated JS for easy customization. Each HTML file links
+                                to its corresponding JS file.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pages Overview Section -->
+            <section id="pages" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Pages Overview</h3>
+
+                    <div class="space-y-6">
+                        <!-- Page 1 -->
+                        <div class="border-l-4 border-orange-500 bg-orange-50 p-5 rounded-r-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-orange-600 text-white rounded-lg flex items-center justify-center font-bold flex-shrink-0">
+                                    1</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-900 mb-2">index.html - Login Page</h4>
+                                    <p class="text-sm text-gray-700 mb-3">
+                                        Split-screen design with branding on left, login form on right. Validates
+                                        credentials against array in JS file.
+                                    </p>
+                                    <div class="bg-white border border-orange-200 rounded-lg p-3">
+                                        <p class="text-xs font-semibold text-gray-900 mb-1">Key Features:</p>
+                                        <ul class="text-xs text-gray-600 space-y-1">
+                                            <li>• Credential validation from array</li>
+                                            <li>• Session creation (30min expiry)</li>
+                                            <li>• Password visibility toggle</li>
+                                            <li>• Demo credentials display</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 2 -->
+                        <div class="border-l-4 border-orange-500 bg-orange-50 p-5 rounded-r-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-orange-600 text-white rounded-lg flex items-center justify-center font-bold flex-shrink-0">
+                                    2</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-900 mb-2">verify-credentials.html - Verification</h4>
+                                    <p class="text-sm text-gray-700 mb-3">
+                                        Displays student info, exam details, and countdown timer. User must check all
+                                        readiness boxes before proceeding.
+                                    </p>
+                                    <div class="bg-white border border-orange-200 rounded-lg p-3">
+                                        <p class="text-xs font-semibold text-gray-900 mb-1">Key Features:</p>
+                                        <ul class="text-xs text-gray-600 space-y-1">
+                                            <li>• Session validation</li>
+                                            <li>• Exam countdown timer</li>
+                                            <li>• Progress steps indicator</li>
+                                            <li>• Blocks access if exam not started</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 3 -->
+                        <div class="border-l-4 border-orange-500 bg-orange-50 p-5 rounded-r-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-orange-600 text-white rounded-lg flex items-center justify-center font-bold flex-shrink-0">
+                                    3</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-900 mb-2">upload-photo.html - Photo Capture</h4>
+                                    <p class="text-sm text-gray-700 mb-3">
+                                        Live camera feed for photo capture. Automatically falls back to file upload if
+                                        camera unavailable.
+                                    </p>
+                                    <div class="bg-white border border-orange-200 rounded-lg p-3">
+                                        <p class="text-xs font-semibold text-gray-900 mb-1">Key Features:</p>
+                                        <ul class="text-xs text-gray-600 space-y-1">
+                                            <li>• MediaDevices API camera access</li>
+                                            <li>• Photo retake functionality</li>
+                                            <li>• File upload fallback</li>
+                                            <li>• Base64 storage in session</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 4 -->
+                        <div class="border-l-4 border-orange-500 bg-orange-50 p-5 rounded-r-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-orange-600 text-white rounded-lg flex items-center justify-center font-bold flex-shrink-0">
+                                    4</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-900 mb-2">student-dashboard.html - Dashboard</h4>
+                                    <p class="text-sm text-gray-700 mb-3">
+                                        Modern dashboard showing exam details, instructions, and readiness checklist.
+                                        Must check all boxes to start.
+                                    </p>
+                                    <div class="bg-white border border-orange-200 rounded-lg p-3">
+                                        <p class="text-xs font-semibold text-gray-900 mb-1">Key Features:</p>
+                                        <ul class="text-xs text-gray-600 space-y-1">
+                                            <li>• Student profile display with photo</li>
+                                            <li>• Exam statistics cards</li>
+                                            <li>• Readiness checklist</li>
+                                            <li>• Instructions accordion</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 5 -->
+                        <div class="border-l-4 border-orange-500 bg-orange-50 p-5 rounded-r-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-orange-600 text-white rounded-lg flex items-center justify-center font-bold flex-shrink-0">
+                                    5</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-900 mb-2">exam.html - Examination Interface</h4>
+                                    <p class="text-sm text-gray-700 mb-3">
+                                        Clean exam interface with timer, question navigator, progress tracking, and
+                                        answer management.
+                                    </p>
+                                    <div class="bg-white border border-orange-200 rounded-lg p-3">
+                                        <p class="text-xs font-semibold text-gray-900 mb-1">Key Features:</p>
+                                        <ul class="text-xs text-gray-600 space-y-1">
+                                            <li>• 45-minute countdown timer</li>
+                                            <li>• Question navigator (30 buttons)</li>
+                                            <li>• Answer state tracking</li>
+                                            <li>• Auto-submit on timeout</li>
+                                            <li>• Previous/Next navigation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 6 -->
+                        <div class="border-l-4 border-orange-500 bg-orange-50 p-5 rounded-r-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-orange-600 text-white rounded-lg flex items-center justify-center font-bold flex-shrink-0">
+                                    6</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-900 mb-2">exam-complete.html - Results & Certificate
+                                    </h4>
+                                    <p class="text-sm text-gray-700 mb-3">
+                                        Beautiful results page with performance stats and professional printable
+                                        certificate.
+                                    </p>
+                                    <div class="bg-white border border-orange-200 rounded-lg p-3">
+                                        <p class="text-xs font-semibold text-gray-900 mb-1">Key Features:</p>
+                                        <ul class="text-xs text-gray-600 space-y-1">
+                                            <li>• Score calculation & grading</li>
+                                            <li>• Pass/Fail status display</li>
+                                            <li>• Performance breakdown</li>
+                                            <li>• Print-only certificate</li>
+                                            <li>• A4-optimized certificate design</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customization Section -->
+            <section id="customization" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Customization Guide</h3>
+
+                    <div class="space-y-8">
+
+                        <!-- Customize 1: Credentials -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 bg-orange-100 text-orange-600 rounded flex items-center justify-center text-sm font-bold">1</span>
+                                Changing Login Credentials
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Edit the <code class="bg-gray-100 px-2 py-1 rounded text-xs">validCredentials</code>
+                                array in <code class="bg-gray-100 px-2 py-1 rounded text-xs">js/index.js</code>
+                            </p>
+                            <div class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto">
+                                <div class="text-green-400">// In js/index.js</div>
+                                <div class="text-gray-400">const validCredentials = [</div>
+                                <div class="ml-4">{</div>
+                                <div class="ml-8">examNumber: <span class="text-yellow-300">'EXM2025001'</span>,</div>
+                                <div class="ml-8">accessCode: <span class="text-yellow-300">'DEMO2025'</span>,</div>
+                                <div class="ml-8">studentName: <span class="text-yellow-300">'John Doe'</span>,</div>
+                                <div class="ml-8">examTitle: <span class="text-yellow-300">'General Knowledge
+                                        Test'</span></div>
+                                <div class="ml-4">},</div>
+                                <div class="ml-4 text-green-400">// Add more credentials here</div>
+                                <div class="text-gray-400">];</div>
+                            </div>
+                        </div>
+
+                        <!-- Customize 2: Questions -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 bg-orange-100 text-orange-600 rounded flex items-center justify-center text-sm font-bold">2</span>
+                                Modifying Exam Questions
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Edit the <code class="bg-gray-100 px-2 py-1 rounded text-xs">questions</code> array in
+                                <code class="bg-gray-100 px-2 py-1 rounded text-xs">js/exam.js</code>
+                            </p>
+                            <div class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto">
+                                <div class="text-green-400">// In js/exam.js</div>
+                                <div class="text-gray-400">const questions = [</div>
+                                <div class="ml-4">{</div>
+                                <div class="ml-8">question: <span class="text-yellow-300">"Your question here?"</span>,
+                                </div>
+                                <div class="ml-8">options: [<span class="text-yellow-300">"Option A"</span>, <span
+                                        class="text-yellow-300">"Option B"</span>, <span class="text-yellow-300">"Option
+                                        C"</span>, <span class="text-yellow-300">"Option D"</span>],</div>
+                                <div class="ml-8">correctAnswer: <span class="text-blue-300">0</span> <span
+                                        class="text-green-400">// Index (0 = first option)</span></div>
+                                <div class="ml-4">},</div>
+                                <div class="ml-4 text-green-400">// Add more questions...</div>
+                                <div class="text-gray-400">];</div>
+                            </div>
+                            <div class="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                                <p class="text-xs text-blue-800">
+                                    <strong>Note:</strong> correctAnswer is zero-indexed (0 = first option, 1 = second
+                                    option, etc.)
+                                </p>
+                            </div>
+
+                            <div class="mt-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                                <p class="text-xs text-yellow-800">
+                                    <strong>Limit:</strong> The question navigator uses a 5-column grid. For more than
+                                    50 questions, you'll need to adjust the grid layout in exam.html or add pagination.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Customize 3: Timer -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 bg-orange-100 text-orange-600 rounded flex items-center justify-center text-sm font-bold">3</span>
+                                Changing Exam Duration
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Modify timer in <code class="bg-gray-100 px-2 py-1 rounded text-xs">js/exam.js</code>
+                            </p>
+                            <div class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto">
+                                <div class="text-green-400">// In js/exam.js</div>
+                                <div>let timeLeft = <span class="text-blue-300">45</span> * <span
+                                        class="text-blue-300">60</span>; <span class="text-green-400">// 45 minutes in
+                                        seconds</span></div>
+                                <div class="mt-2 text-gray-400">// Examples:</div>
+                                <div>let timeLeft = <span class="text-blue-300">30</span> * <span
+                                        class="text-blue-300">60</span>; <span class="text-green-400">// 30
+                                        minutes</span></div>
+                                <div>let timeLeft = <span class="text-blue-300">60</span> * <span
+                                        class="text-blue-300">60</span>; <span class="text-green-400">// 60
+                                        minutes</span></div>
+                                <div>let timeLeft = <span class="text-blue-300">90</span> * <span
+                                        class="text-blue-300">60</span>; <span class="text-green-400">// 90
+                                        minutes</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Customize 4: Colors -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 bg-orange-100 text-orange-600 rounded flex items-center justify-center text-sm font-bold">4</span>
+                                Changing Colors/Branding
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                The design uses orange as the primary color. To change colors, update Tailwind classes:
+                            </p>
+                            <div class="bg-gray-100 border border-gray-200 rounded-lg p-4">
+                                <p class="text-xs font-semibold text-gray-900 mb-2">Find & Replace in all HTML files:
+                                </p>
+                                <div class="space-y-2 text-xs">
+                                    <div class="flex items-center gap-3">
+                                        <code class="bg-white px-2 py-1 rounded border">orange-</code>
+                                        <span class="text-gray-500">→</span>
+                                        <code class="bg-white px-2 py-1 rounded border">blue-</code>
+                                        <span class="text-gray-500">(for blue theme)</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <code class="bg-white px-2 py-1 rounded border">orange-</code>
+                                        <span class="text-gray-500">→</span>
+                                        <code class="bg-white px-2 py-1 rounded border">green-</code>
+                                        <span class="text-gray-500">(for green theme)</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <code class="bg-white px-2 py-1 rounded border">orange-</code>
+                                        <span class="text-gray-500">→</span>
+                                        <code class="bg-white px-2 py-1 rounded border">purple-</code>
+                                        <span class="text-gray-500">(for purple theme)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customize 5: Session Time -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 bg-orange-100 text-orange-600 rounded flex items-center justify-center text-sm font-bold">5</span>
+                                Changing Session Expiry Time
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Default session is 30 minutes. Modify in <code
+                                    class="bg-gray-100 px-2 py-1 rounded text-xs">js/index.js</code>
+                            </p>
+                            <div class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto">
+                                <div class="text-green-400">// In js/index.js - login handler</div>
+                                <div>expiresAt: new Date(Date.now() + <span class="text-blue-300">30</span> * <span
+                                        class="text-blue-300">60</span> * <span class="text-blue-300">1000</span>)</div>
+                                <div class="mt-2 text-gray-400">// Change 30 to desired minutes:</div>
+                                <div>expiresAt: new Date(Date.now() + <span class="text-blue-300">60</span> * <span
+                                        class="text-blue-300">60</span> * <span class="text-blue-300">1000</span>) <span
+                                        class="text-green-400">// 60 minutes</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Customize 6: Exam Start Time -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 bg-orange-100 text-orange-600 rounded flex items-center justify-center text-sm font-bold">6</span>
+                                Bypassing Exam Countdown (Testing)
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                For testing, set exam start time to the past in <code
+                                    class="bg-gray-100 px-2 py-1 rounded text-xs">js/verify-credentials.js</code>
+                            </p>
+                            <div class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto">
+                                <div class="text-green-400">// In js/verify-credentials.js</div>
+                                <div class="text-red-400">// FOR PRODUCTION (5 minutes wait):</div>
+                                <div>const EXAM_START_TIME = new Date(Date.now() + <span class="text-blue-300">5</span>
+                                    * <span class="text-blue-300">60</span> * <span class="text-blue-300">1000</span>)
+                                </div>
+                                <div class="mt-2"></div>
+                                <div class="text-green-400">// FOR TESTING (instant access):</div>
+                                <div>const EXAM_START_TIME = new Date(Date.now() - <span
+                                        class="text-blue-300">1000</span>)</div>
+                            </div>
+                            <div class="mt-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                                <p class="text-xs text-yellow-800">
+                                    <strong>Warning:</strong> Remember to change this back for production!
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <!-- Customize 7: CDN to Local CSS (Optional) -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 bg-orange-100 text-orange-600 rounded flex items-center justify-center text-sm font-bold">7</span>
+                                Converting CDN to Local CSS (Advanced)
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                If you need offline functionality or want to optimize file size, you can replace the CDN
+                                with a local CSS file.
+                            </p>
+                            <div class="bg-gray-100 border border-gray-200 rounded-lg p-4 mb-3">
+                                <p class="text-xs font-semibold text-gray-900 mb-2">Current Setup (CDN):</p>
+                                <div class="bg-gray-900 text-gray-100 p-3 rounded text-xs font-mono">
+                                    <div class="text-green-400"><!-- In all HTML files --></div>
+                                    <div>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-700 mb-3"><strong>Option 1: Use Full Tailwind CSS</strong></p>
+                            <ol class="space-y-2 text-sm text-gray-700 ml-4 mb-4">
+                                <li>1. Download full CSS from: <code
+                                        class="bg-gray-100 px-2 py-0.5 rounded text-xs">https://unpkg.com/tailwindcss@3.4.17/dist/tailwind.min.css</code>
+                                </li>
+                                <li>2. Save as <code
+                                        class="bg-gray-100 px-2 py-0.5 rounded text-xs">css/tailwind.min.css</code></li>
+                                <li>3. Replace script tag with: <code
+                                        class="bg-gray-100 px-2 py-0.5 rounded text-xs">&lt;link rel="stylesheet" href="./css/tailwind.min.css"&gt;</code>
+                                </li>
+                            </ol>
+                            <p class="text-sm text-gray-700 mb-3"><strong>Option 2: Compile Tailwind Locally
+                                    (Recommended for Production)</strong></p>
+                            <ol class="space-y-2 text-sm text-gray-700 ml-4">
+                                <li>1. Install Node.js from <a href="https://nodejs.org"
+                                        class="text-orange-600 hover:underline">nodejs.org</a></li>
+                                <li>2. Run: <code
+                                        class="bg-gray-900 text-white px-2 py-0.5 rounded text-xs">npm install -D tailwindcss</code>
+                                </li>
+                                <li>3. Create config file and compile (see Tailwind docs for full guide)</li>
+                                <li>4. Replace CDN script with compiled CSS link</li>
+                            </ol>
+                            <div class="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                                <p class="text-xs text-blue-800">
+                                    <strong>For most users:</strong> The CDN approach works perfectly and requires no
+                                    additional setup. Only convert to local CSS if you have specific offline
+                                    requirements or want to optimize file size further.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <!-- Session Management Section -->
+            <section id="session-management" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Session Management</h3>
+
+                    <p class="text-sm text-gray-600 mb-6">
+                        Questify uses browser SessionStorage to manage user authentication and exam state. Sessions
+                        automatically expire after 30 minutes for security.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h4 class="font-bold text-gray-900 mb-3">How It Works</h4>
+                            <ol class="space-y-3 text-sm text-gray-700">
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-orange-600 flex-shrink-0">1.</span>
+                                    <span>User logs in with valid credentials → session created in sessionStorage</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-orange-600 flex-shrink-0">2.</span>
+                                    <span>Session includes: examNumber, studentName, examTitle, loginTime,
+                                        expiresAt</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-orange-600 flex-shrink-0">3.</span>
+                                    <span>Every page checks session validity on load</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-orange-600 flex-shrink-0">4.</span>
+                                    <span>If expired or missing → redirect to login</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-orange-600 flex-shrink-0">5.</span>
+                                    <span>Session cleared on logout or browser close</span>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm font-mono overflow-x-auto">
+                            <div class="text-green-400">// Session data structure</div>
+                            <div class="text-gray-400">{</div>
+                            <div class="ml-4">examNumber: <span class="text-yellow-300">"EXM2025001"</span>,</div>
+                            <div class="ml-4">studentName: <span class="text-yellow-300">"John Doe"</span>,</div>
+                            <div class="ml-4">examTitle: <span class="text-yellow-300">"General Knowledge Test"</span>,
+                            </div>
+                            <div class="ml-4">loginTime: <span
+                                    class="text-yellow-300">"2025-10-03T14:30:00.000Z"</span>,</div>
+                            <div class="ml-4">expiresAt: <span
+                                    class="text-yellow-300">"2025-10-03T15:00:00.000Z"</span>,</div>
+                            <div class="ml-4">photoVerified: <span class="text-blue-300">true</span>,</div>
+                            <div class="ml-4">photoDataUrl: <span
+                                    class="text-yellow-300">"data:image/jpeg;base64,..."</span></div>
+                            <div class="text-gray-400">}</div>
+                        </div>
+
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                            <h4 class="font-bold text-blue-900 mb-2">Security Features</h4>
+                            <ul class="space-y-2 text-sm text-blue-800">
+                                <li>• Auto-expiry prevents unauthorized access</li>
+                                <li>• Session cleared on browser close</li>
+                                <li>• Each page validates session before rendering</li>
+                                <li>• No persistent storage (no localStorage used)</li>
+                                <li>• Session lost if browser refreshed during exam - answers not saved</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Browser Storage Section -->
+            <section id="browser-storage" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Browser Storage</h3>
+
+                    <p class="text-sm text-gray-600 mb-6">
+                        The system uses <strong>sessionStorage</strong> exclusively. No localStorage, cookies, or
+                        server-side storage required.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border border-green-200 bg-green-50 rounded-xl p-5">
+                            <h4 class="font-bold text-green-900 mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                What We Use
+                            </h4>
+                            <div class="space-y-2 text-sm text-green-800">
+                                <div class="flex items-start gap-2">
+                                    <span class="font-bold">✓</span>
+                                    <span><strong>sessionStorage</strong> - Temporary data during exam session</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="font-bold">✓</span>
+                                    <span>Auto-clears when browser closes</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="font-bold">✓</span>
+                                    <span>No backend database needed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-red-200 bg-red-50 rounded-xl p-5">
+                            <h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                What We DON'T Use
+                            </h4>
+                            <div class="space-y-2 text-sm text-red-800">
+                                <div class="flex items-start gap-2">
+                                    <span class="font-bold">✗</span>
+                                    <span><strong>localStorage</strong> - Not used (would persist after session)</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="font-bold">✗</span>
+                                    <span><strong>Cookies</strong> - Not needed</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="font-bold">✗</span>
+                                    <span><strong>Backend database</strong> - Fully client-side</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                        <h4 class="font-bold text-yellow-900 mb-2">Important for Integration</h4>
+                        <p class="text-sm text-yellow-800">
+                            When integrating with your backend, you can easily replace sessionStorage calls with API
+                            requests to save data permanently.
+                            The current setup demonstrates the complete workflow without requiring server
+                            infrastructure.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certificate System Section -->
+            <section id="certificate" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Certificate System</h3>
+
+                    <p class="text-sm text-gray-600 mb-6">
+                        Professional A4-sized certificates are auto-generated with student details, scores, grades, and
+                        print-optimized layout.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h4 class="font-bold text-gray-900 mb-3">Certificate Features</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>A4 size optimized (210mm × 297mm)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Gold border design</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Automatic grade calculation (A+, A, B, C, D, F)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Signature lines and official seal</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Certificate number auto-generated</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h4 class="font-bold text-gray-900 mb-3">Grade Calculation</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center justify-between p-2 bg-green-50 rounded">
+                                    <span class="font-bold text-green-700">90-100%</span>
+                                    <span class="font-bold text-green-900">A+</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-green-50 rounded">
+                                    <span class="font-bold text-green-700">80-89%</span>
+                                    <span class="font-bold text-green-900">A</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-blue-50 rounded">
+                                    <span class="font-bold text-blue-700">70-79%</span>
+                                    <span class="font-bold text-blue-900">B</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-yellow-50 rounded">
+                                    <span class="font-bold text-yellow-700">60-69%</span>
+                                    <span class="font-bold text-yellow-900">C</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-orange-50 rounded">
+                                    <span class="font-bold text-orange-700">50-59%</span>
+                                    <span class="font-bold text-orange-900">D</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-red-50 rounded">
+                                    <span class="font-bold text-red-700">Below 50%</span>
+                                    <span class="font-bold text-red-900">F (Fail)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-100 border border-gray-200 rounded-xl p-4">
+                        <h4 class="font-bold text-gray-900 mb-2">Print Functionality</h4>
+                        <p class="text-sm text-gray-700 mb-3">
+                            The certificate uses <code class="bg-white px-2 py-1 rounded text-xs">@media print</code>
+                            CSS to show ONLY the certificate when printing.
+                            All other page elements are hidden automatically.
+                        </p>
+                        <div class="bg-gray-900 text-gray-100 p-3 rounded-lg text-xs font-mono">
+                            <div class="text-green-400">/* In exam-complete.html */</div>
+                            <div>@media print {</div>
+                            <div class="ml-4">body > *:not(#printCertificate) {</div>
+                            <div class="ml-8">display: none !important;</div>
+                            <div class="ml-4">}</div>
+                            <div>}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
+
+                    <div class="space-y-4">
+                        <details class="border border-gray-200 rounded-lg p-4 group">
+                            <summary class="font-bold text-gray-900 cursor-pointer flex justify-between items-center">
+                                Do I need a backend/database?
+                                <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <p class="text-sm text-gray-600 mt-3">
+                                No! This is a fully client-side system. It works perfectly without any backend. However,
+                                you can easily integrate it with your own backend by replacing sessionStorage calls with
+                                API requests.
+                            </p>
+                        </details>
+
+                        <details class="border border-gray-200 rounded-lg p-4 group">
+                            <summary class="font-bold text-gray-900 cursor-pointer flex justify-between items-center">
+                                Can I use this commercially?
+                                <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <p class="text-sm text-gray-600 mt-3">
+                                Yes! This template comes with a Regular License for personal and commercial use. You can
+                                use it for client projects, your own business, or educational institutions.
+                            </p>
+                        </details>
+
+                        <details class="border border-gray-200 rounded-lg p-4 group">
+                            <summary class="font-bold text-gray-900 cursor-pointer flex justify-between items-center">
+                                How do I add more questions?
+                                <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <p class="text-sm text-gray-600 mt-3">
+                                Open <code class="bg-gray-100 px-2 py-1 rounded text-xs">js/exam.js</code> and add more
+                                objects to the <code class="bg-gray-100 px-2 py-1 rounded text-xs">questions</code>
+                                array. Follow the existing format. Don't forget to update the total question count in
+                                the UI.
+                            </p>
+                        </details>
+
+                        <details class="border border-gray-200 rounded-lg p-4 group">
+                            <summary class="font-bold text-gray-900 cursor-pointer flex justify-between items-center">
+                                Is the camera feature required?
+                                <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <p class="text-sm text-gray-600 mt-3">
+                                No. The system automatically falls back to file upload if camera access is denied or
+                                unavailable. Users can upload a photo from their device instead.
+                            </p>
+                        </details>
+
+                        <details class="border border-gray-200 rounded-lg p-4 group">
+                            <summary class="font-bold text-gray-900 cursor-pointer flex justify-between items-center">
+                                Can I change the design/colors?
+                                <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <p class="text-sm text-gray-600 mt-3">
+                                Yes! The design uses Tailwind CSS classes. Simply find and replace color classes (e.g.,
+                                change <code class="bg-gray-100 px-2 py-1 rounded text-xs">orange-</code> to <code
+                                    class="bg-gray-100 px-2 py-1 rounded text-xs">blue-</code>) throughout the HTML
+                                files.
+                            </p>
+                        </details>
+
+                        <details class="border border-gray-200 rounded-lg p-4 group">
+                            <summary class="font-bold text-gray-900 cursor-pointer flex justify-between items-center">
+                                Does it work offline?
+                                <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <p class="text-sm text-gray-600 mt-3">
+                                Almost. The system uses Tailwind CSS from CDN, which requires internet. To make it fully
+                                offline, download Tailwind CSS locally and update the stylesheet links.
+                            </p>
+                        </details>
+
+                        <details class="border border-gray-200 rounded-lg p-4 group">
+                            <summary class="font-bold text-gray-900 cursor-pointer flex justify-between items-center">
+                                Can I skip the photo verification step?
+                                <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <p class="text-sm text-gray-600 mt-3">
+                                Yes. Simply modify the navigation flow. In <code
+                                    class="bg-gray-100 px-2 py-1 rounded text-xs">verify-credentials.html</code>, change
+                                the "Proceed" button to go directly to <code
+                                    class="bg-gray-100 px-2 py-1 rounded text-xs">student-dashboard.html</code> instead
+                                of <code class="bg-gray-100 px-2 py-1 rounded text-xs">upload-photo.html</code>.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Credits Section -->
+            <section id="credits" class="mb-16 scroll-mt-24">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Credits & License</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-3">Resources Used</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3 text-sm">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Tailwind CSS v3.x</p>
+                                        <p class="text-gray-600">MIT License - <a href="https://tailwindcss.com"
+                                                class="text-orange-600 hover:text-orange-700">tailwindcss.com</a></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3 text-sm">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">HTML5 & CSS3</p>
+                                        <p class="text-gray-600">Standard web technologies</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3 text-sm">
+                                    <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">JavaScript ES6+</p>
+                                        <p class="text-gray-600">Vanilla JavaScript, no frameworks</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 border border-orange-200 rounded-xl p-5">
+                            <h4 class="font-bold text-orange-900 mb-3">License Information</h4>
+                            <p class="text-sm text-orange-800 mb-3">
+                                This template is licensed under the Regular License from ThemeForest/Envato Market.
+                            </p>
+                            <div class="space-y-2 text-sm text-orange-800">
+                                <p><strong>You CAN:</strong></p>
+                                <ul class="ml-4 space-y-1">
+                                    <li>✓ Use for personal or commercial projects</li>
+                                    <li>✓ Use for client projects</li>
+                                    <li>✓ Modify and customize</li>
+                                    <li>✓ Integrate with your backend</li>
+                                </ul>
+                                <p class="mt-3"><strong>You CANNOT:</strong></p>
+                                <ul class="ml-4 space-y-1">
+                                    <li>✗ Resell or redistribute as-is</li>
+                                    <li>✗ Use in multiple end products without extended license</li>
+                                    <li>✗ Create derivative templates for sale</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="mb-16 scroll-mt-24">
+                <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
+                    <div class="max-w-2xl mx-auto">
+                        <div
+                            class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Need Help?</h3>
+                        <p class="text-lg opacity-90 mb-6">
+                            We're here to assist you with any questions or customization needs
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="mailto:okoyechibuike031@gmail.com"
+                                class="bg-white text-orange-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition inline-flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                Email Support
+                            </a>
+                            <a href="../index.html"
+                                class="bg-white bg-opacity-20 border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-opacity-30 transition inline-flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                                Launch Application
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 lg:hidden">
+        <div class="bg-white w-64 h-full p-6 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-bold text-gray-900">Navigation</h3>
+                <button id="closeMobileMenu" class="text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Search Box Mobile -->
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" id="searchInputMobile" placeholder="Search..."
+                        class="w-full pl-10 pr-4 py-2 border-2 border-gray-200 rounded-lg focus:border-orange-500 outline-none text-sm">
+                    <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <nav class="space-y-1">
+                <a href="#overview"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Overview</a>
+                <a href="#features"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Features</a>
+                <a href="#installation"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Installation</a>
+                <a href="#file-structure"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">File
+                    Structure</a>
+                <a href="#pages"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Pages
+                    Overview</a>
+                <a href="#customization"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Customization</a>
+                <a href="#session-management"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Session
+                    Management</a>
+                <a href="#browser-storage"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Browser
+                    Storage</a>
+                <a href="#certificate"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Certificate
+                    System</a>
+                <a href="#faq"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">FAQ</a>
+                <a href="#credits"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Credits</a>
+                <a href="#support"
+                    class="mobile-nav-link block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg">Support</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchInputMobile = document.getElementById('searchInputMobile');
+        const searchResults = document.getElementById('searchResults');
+
+        // All searchable content with section IDs
+        const searchableContent = [
+            { id: 'overview', title: 'Overview', keywords: 'what is questify cbt testing system introduction about' },
+            { id: 'features', title: 'Features', keywords: 'key features authentication session camera photo timer certificate mobile responsive' },
+            { id: 'installation', title: 'Installation', keywords: 'install setup extract download requirements browser' },
+            { id: 'file-structure', title: 'File Structure', keywords: 'files folders organization structure index exam js css' },
+            { id: 'pages', title: 'Pages Overview', keywords: 'login verify photo dashboard exam complete certificate pages' },
+            { id: 'customization', title: 'Customization', keywords: 'customize change modify credentials questions timer colors branding' },
+            { id: 'session-management', title: 'Session Management', keywords: 'session storage authentication expiry timeout' },
+            { id: 'browser-storage', title: 'Browser Storage', keywords: 'sessionstorage localstorage cookies database' },
+            { id: 'certificate', title: 'Certificate System', keywords: 'certificate print grade score pass fail pdf' },
+            { id: 'faq', title: 'FAQ', keywords: 'questions help backend database commercial offline' },
+            { id: 'credits', title: 'Credits', keywords: 'license tailwind resources attribution' },
+            { id: 'support', title: 'Support', keywords: 'help contact support assistance' }
+        ];
+
+        function performSearch(query) {
+            if (!query || query.length < 2) {
+                searchResults.classList.add('hidden');
+                return;
+            }
+
+            const results = searchableContent.filter(item =>
+                item.title.toLowerCase().includes(query.toLowerCase()) ||
+                item.keywords.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (results.length > 0) {
+                searchResults.innerHTML = results.map(result => `
+            <a href="#${result.id}" class="block px-4 py-2 hover:bg-orange-50 text-sm font-medium text-gray-700 hover:text-orange-600">
+                ${result.title}
+            </a>
+        `).join('');
+                searchResults.classList.remove('hidden');
+            } else {
+                searchResults.innerHTML = '<div class="px-4 py-2 text-sm text-gray-500">No results found</div>';
+                searchResults.classList.remove('hidden');
+            }
+        }
+
+        searchInput.addEventListener('input', (e) => performSearch(e.target.value));
+        searchInputMobile.addEventListener('input', (e) => performSearch(e.target.value));
+
+        // Close search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

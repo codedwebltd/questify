@@ -1,0 +1,174 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questify - Student Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/animations.css">
+
+</head>
+
+<body class="bg-gradient-to-br from-orange-50 to-white min-h-screen">
+
+    <div class="min-h-screen flex">
+
+        <!-- Left Side - Branding -->
+        <div
+            class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-orange-500 to-orange-600 p-12 flex-col justify-between relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute top-20 right-20 w-64 h-64 bg-white opacity-10 rounded-full"></div>
+            <div class="absolute bottom-20 left-20 w-96 h-96 bg-white opacity-10 rounded-full"></div>
+
+            <div class="relative z-10 slide-in">
+                <div class="flex items-center gap-3 mb-12">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="text-3xl font-bold text-white">Questify</span>
+                </div>
+
+                <h2 class="text-5xl font-bold text-white mb-6 leading-tight">
+                    Modern Computer<br>Based Testing<br>Platform
+                </h2>
+                <p class="text-orange-100 text-lg leading-relaxed max-w-md">
+                    Secure, efficient, and user-friendly examination system designed for educational institutions and
+                    certification bodies.
+                </p>
+            </div>
+
+            <div class="relative z-10 fade-in-up" style="animation-delay: 0.3s;">
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4">
+                        <div class="text-3xl font-bold text-white mb-1">99.9%</div>
+                        <div class="text-orange-100 text-sm">Uptime</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4">
+                        <div class="text-3xl font-bold text-white mb-1">100K+</div>
+                        <div class="text-orange-100 text-sm">Exams Taken</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4">
+                        <div class="text-3xl font-bold text-white mb-1">24/7</div>
+                        <div class="text-orange-100 text-sm">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12">
+            <div class="w-full max-w-md fade-in-up">
+
+                <!-- Mobile Logo -->
+                <div class="lg:hidden text-center mb-8">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl shadow-lg mb-3">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900">Questify</h1>
+                </div>
+
+                <!-- Header -->
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
+                    <p class="text-gray-600">Sign in to access your examination portal</p>
+                </div>
+
+                <!-- Alert Messages -->
+                <div id="alertBox" class="hidden mb-6 p-4 rounded-xl"></div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="space-y-5">
+
+                    <!-- Exam Number Input -->
+                    <div>
+                        <label for="examNumber" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Exam Number
+                        </label>
+                        <input type="text" id="examNumber" name="examNumber"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition outline-none"
+                            placeholder="EXM2025001" required>
+                    </div>
+
+                    <!-- Access Code Input -->
+                    <div>
+                        <label for="accessCode" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Access Code
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="accessCode" name="accessCode"
+                                class="w-full px-4 py-3 pr-12 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition outline-none"
+                                placeholder="Enter access code" required>
+                            <button type="button" id="togglePassword"
+                                class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600">
+                                <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox"
+                                class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500">
+                            <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm text-orange-600 hover:text-orange-700 font-medium">Forgot code?</a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit"
+                        class="w-full bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-orange-700 transition transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-orange-200">
+                        Sign In
+                    </button>
+
+                </form>
+
+                <!-- Demo Info -->
+                <div class="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <div>
+                            <p class="text-sm font-semibold text-orange-900 mb-1">Demo Credentials</p>
+                            <p class="text-xs text-orange-800"><strong>Number:</strong> EXM2025001</p>
+                            <p class="text-xs text-orange-800"><strong>Code:</strong> DEMO2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-600">
+                        Need assistance? <a href="#" class="text-orange-600 hover:text-orange-700 font-medium">Contact
+                            Support</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

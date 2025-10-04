@@ -1,0 +1,202 @@
+<!-- exam.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination - Questify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/animations.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="font-bold text-gray-900">Questify CBT</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="hidden sm:flex items-center gap-2 bg-orange-50 px-3 py-1.5 rounded-lg">
+                        <svg class="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-gray-700" id="studentName">John Doe</span>
+                    </div>
+
+                    <div
+                        class="flex items-center gap-2 bg-red-50 px-3 py-1.5 rounded-lg border border-red-200 pulse-ring">
+                        <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-sm font-bold text-red-600" id="timer">45:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- Question Progress Bar -->
+        <div class="bg-white rounded-xl border border-gray-100 p-4 mb-6">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-sm font-semibold text-gray-700">Question Progress</span>
+                <span class="text-sm font-bold text-orange-600" id="questionCounter">1/30</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progressBar" class="bg-orange-600 h-2 rounded-full transition-all duration-300"
+                    style="width: 3.33%"></div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+            <!-- Main Question Area -->
+            <div class="lg:col-span-3">
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-xl border border-gray-100 p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                Question <span id="currentQuestion">1</span>
+                            </span>
+                        </div>
+                        <button class="p-2 hover:bg-gray-100 rounded-lg transition" title="Bookmark">
+                            <svg class="w-5 h-5 text-gray-400 hover:text-orange-600" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-900 leading-relaxed mb-6" id="questionText">
+                        Which of the following countries is a member of ECOWAS?
+                    </h3>
+
+                    <!-- Options -->
+                    <div class="space-y-3" id="optionsContainer">
+                        <label
+                            class="flex items-center p-4 bg-gray-50 hover:bg-orange-50 rounded-lg cursor-pointer transition border-2 border-transparent hover:border-orange-200 group">
+                            <input type="radio" name="answer" value="0"
+                                class="w-5 h-5 text-orange-600 border-gray-300 focus:ring-orange-500">
+                            <span class="ml-4 text-base text-gray-700 group-hover:text-gray-900">Mali</span>
+                        </label>
+                        <label
+                            class="flex items-center p-4 bg-gray-50 hover:bg-orange-50 rounded-lg cursor-pointer transition border-2 border-transparent hover:border-orange-200 group">
+                            <input type="radio" name="answer" value="1"
+                                class="w-5 h-5 text-orange-600 border-gray-300 focus:ring-orange-500">
+                            <span class="ml-4 text-base text-gray-700 group-hover:text-gray-900">Niger</span>
+                        </label>
+                        <label
+                            class="flex items-center p-4 bg-gray-50 hover:bg-orange-50 rounded-lg cursor-pointer transition border-2 border-transparent hover:border-orange-200 group">
+                            <input type="radio" name="answer" value="2"
+                                class="w-5 h-5 text-orange-600 border-gray-300 focus:ring-orange-500">
+                            <span class="ml-4 text-base text-gray-700 group-hover:text-gray-900">Guinea</span>
+                        </label>
+                        <label
+                            class="flex items-center p-4 bg-gray-50 hover:bg-orange-50 rounded-lg cursor-pointer transition border-2 border-transparent hover:border-orange-200 group">
+                            <input type="radio" name="answer" value="3"
+                                class="w-5 h-5 text-orange-600 border-gray-300 focus:ring-orange-500">
+                            <span class="ml-4 text-base text-gray-700 group-hover:text-gray-900">Cameroon</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex gap-3">
+                    <button id="prevBtn"
+                        class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                        Previous
+                    </button>
+                    <button id="nextBtn"
+                        class="flex-1 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2">
+                        Next
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                    <button id="submitBtn"
+                        class="hidden flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Submit Exam
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+
+                <!-- Exam Info -->
+                <div class="bg-white rounded-xl border border-gray-100 p-4">
+                    <h3 class="text-sm font-bold text-gray-900 mb-3">Exam Summary</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Total Questions:</span>
+                            <span class="font-semibold text-gray-900">30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Answered:</span>
+                            <span class="font-semibold text-green-600" id="answeredCount">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Unanswered:</span>
+                            <span class="font-semibold text-orange-600" id="unansweredCount">30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question Navigator -->
+                <div class="bg-white rounded-xl border border-gray-100 p-4">
+                    <h3 class="text-sm font-bold text-gray-900 mb-3">Question Navigator</h3>
+                    <div class="grid grid-cols-5 gap-2 mb-4" id="questionNav">
+                        <!-- Generated by JS -->
+                    </div>
+
+                    <div class="flex flex-col gap-2 pt-3 border-t border-gray-100 text-xs">
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 bg-orange-600 rounded"></div>
+                            <span class="text-gray-600">Answered</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 bg-yellow-400 rounded"></div>
+                            <span class="text-gray-600">Current</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 bg-gray-200 rounded"></div>
+                            <span class="text-gray-600">Unanswered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/exam.js"></script>
+</body>
+
+</html>
