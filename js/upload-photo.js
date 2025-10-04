@@ -6,7 +6,7 @@ let video = document.getElementById('video');
 
         // Check session
         window.addEventListener('DOMContentLoaded', function() {
-            checkSession();
+            //checkSession();
             initCamera();
         });
 
